@@ -11,10 +11,15 @@ services:
     build:
       context: ./frontend
       dockerfile: Dockerfile
+    working_dir: /app
+    volumes:
+      - ./:/app
     environment:
-      DB_DATABASE: student
-      DB_USER: root
-      DB_PASSWORD: 
-      DB_HOST: localhost
+      MYSQL_HOST: localhost
+      MYSQL_USER: root
+      MYSQL_PASSWORD: ''
+      MYSQL_DB: student
+    
     ports:
       - "3000:3000"
+  
